@@ -13,8 +13,10 @@ function getRepoContributors(repoOwner, repoName, cb) {
             'User-Agent': 'request'
         }
     };
-    request.get(auth, function(err, result) {
-        cb(err, result);
+    request(auth, function(err, result, body) {
+        var buffer = JSON.parse(body);
+        cb(err, buffer);
+        
     });
 
 }
